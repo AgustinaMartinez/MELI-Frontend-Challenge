@@ -29,18 +29,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<<<<<<< HEAD
 
 ### Inside client folder, you can run:
 
 #### `cd client`
 
 And then:
-=======
-### Inside client folder, you can run:
-
-First: cd client, and then:
->>>>>>> daedc3b65e56ff0da08776f705386c922251aab5
 
 #### `npm start`
 
