@@ -1,17 +1,16 @@
-const axios = require('axios');
-const config = require('../../config/config');
+const { getItems } = require('../services/items.service');
 
-const getItems = query => {
+const getItemsData = query => {
   return new Promise((resolve, reject) => {
-    axios.get(`${config.items_url}?q=${query}&limit=${config.limit}`)
+    getItems(query)
     .then(res => {
       let items = {
         author: {
           "name": "Agustina",
           "lastname": "Martínez"
         },
-        categories: res?.data?.filters[0]?.values[0]?.path_from_root.map(path => path.name),
-        items: res?.data?.results.map(result => {
+        categories: res?.filters[0]?.values[0]?.path_from_root.map(path => path.name),
+        items: res?.results.map(result => {
           return {
             id: result?.id,
             title: result?.title,
@@ -34,4 +33,4 @@ const getItems = query => {
   })
 }
 
-module.exports = { getItems };
+module.exports = { getItemsData };

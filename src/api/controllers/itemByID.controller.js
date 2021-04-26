@@ -1,9 +1,8 @@
-const axios = require('axios');
-const config = require('../../config/config');
+const { getItemByID, getItemDescription } = require('../services/itemByID.service');
 
-const getItemByID = async (id) => {
-  const result = await axios.get(`${config.items_byID}?ids=${id}`);
-  const result2 = await axios.get(`${config.items_byID}?ids=${id}/description`);
+const getItemByIDdata = async id => {
+  const result = await getItemByID(id);
+  const result2 = await getItemDescription(id);
   let item = {
     author: {
       "name": "Agustina",
@@ -27,4 +26,4 @@ const getItemByID = async (id) => {
   return item;
 }
 
-module.exports = { getItemByID };
+module.exports = { getItemByIDdata };
